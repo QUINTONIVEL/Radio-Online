@@ -5,7 +5,6 @@ class RadioPlayer {
     this.isPlaying = false;
     this.initializePlayer();
     this.setupEventListeners();
-    this.initializeListenerCount();
   }
 
   initializePlayer() {
@@ -73,54 +72,6 @@ class RadioPlayer {
     this.isPlaying = false;
     const playButton = document.getElementById('playButton');
     playButton.classList.remove('playing');
-  }
-
-  initializeListenerCount() {
-    // Initialize with random number between 500-1000
-    this.currentListeners = Math.floor(Math.random() * (1000 - 500) + 500);
-    this.updateListenerDisplay();
-
-    // Update listeners count every minute with small variations
-    setInterval(() => {
-      // Generate a random change between -1 and 3
-      const variation = Math.floor(Math.random() * 5) - 1;
-      this.currentListeners += variation;
-
-      // Keep within bounds
-      if (this.currentListeners < 500) this.currentListeners = 500;
-      if (this.currentListeners > 1000) this.currentListeners = 1000;
-
-      // Animate the change
-      this.animateListenerCount(this.currentListeners);
-    }, 60000); // Every minute
-  }
-
-  animateListenerCount(newValue) {
-    const counterElement = document.getElementById('listenerCount');
-    const oldValue = parseInt(counterElement.textContent);
-    const diff = newValue - oldValue;
-    const duration = 2000; // 2 seconds
-    const steps = 20;
-    const increment = diff / steps;
-    let currentStep = 0;
-
-    const animation = setInterval(() => {
-      currentStep++;
-      const currentValue = Math.round(oldValue + (increment * currentStep));
-      counterElement.textContent = currentValue;
-
-      if (currentStep >= steps) {
-        clearInterval(animation);
-        counterElement.textContent = newValue;
-      }
-    }, duration / steps);
-  }
-
-  updateListenerDisplay() {
-    const listenerCountElement = document.getElementById('listenerCount');
-    if (listenerCountElement) {
-      listenerCountElement.textContent = this.currentListeners;
-    }
   }
 }
 

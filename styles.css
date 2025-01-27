@@ -238,31 +238,3 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .fade-transition {
   transition: opacity 0.3s ease;
 }
-
-.listener-count {
-  text-align: center;
-  margin-top: 15px;
-  padding: 10px;
-  background: rgba(25, 118, 210, 0.1);
-  border-radius: 12px;
-  font-size: 0.9em;
-  color: var(--text-secondary);
-}
-
-.listener-count strong {
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.listener-icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-  vertical-align: middle;
-}
-
-.listener-icon svg {
-  fill: var(--primary-color);
-  opacity: 0.8;
-}
